@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>View Individual</h1>
+<div mat-dialog-content>
+    <mat-label>Post Id</mat-label>
+    <div>
+        <input matInput type="text" [(ngModel)]="postId">
+    </div>
+</div>
+
+<div>
+    <mat-label>Title</mat-label>
+    <div>
+        <textarea matInput placeholder="title value" disabled>{{data.title}}</textarea>
+    </div>
+</div>
+
+<div>
+    Id- {{data.id}}
+</div>
+
+<div>
+    User Id- {{data.userId}}
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="searchIndi(postId)">Filter</button>
+</div>

@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>View Comment Data</h1>
+<div mat-dialog-content>
+    <mat-label>Post Id</mat-label>
+    <div>
+        <input type="text" [(ngModel)]="postId">
+    </div>
+</div>
+<div *ngIf="dataComment != undefined">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Body</th>
+            <th>Name</th>
+        </tr>
+        <!-- slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;  -->
+        <!-- comments: filterUser; -->
+        <tr *ngFor="let data of dataComment">
+            <td>{{data.id}}</td>
+            <td>{{data.email}}</td>
+            <td>{{ data.body }}</td>
+            <td>{{ data.name }}</td>
+        </tr>
+    </table>
+</div>
+
+
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="searchComment(postId)">Filter</button>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>tribehired-devs test </h2>
+    <div fxLayout="row">
+        <div fxLayout="column" style="margin-right: 3rem;">
+            <button mat-raised-button (click)="openDialog()">Open Post</button>
+        </div>
+        <div fxLayout="column">
+            <button mat-raised-button (click)="openComment()">Open Comment</button>
+        </div>
+    </div>
+    <div>
+        <button mat-raised-button color="primary" style="margin-right: 3rem;">Filter</button>
+        <input type="text" [(ngModel)]="valueFilter">
+    </div>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Body</th>
+            <th>Title</th>
+        </tr>
+        <!-- slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;  -->
+        <!-- comments: filterUser; -->
+        <tr
+            *ngFor="let data of allData | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize | filter: valueFilter;">
+            <td>{{data.id}}</td>
+            <td>{{data.userId}}</td>
+            <td>{{ data.body }}</td>
+            <td>{{ data.title }}</td>
+        </tr>
+    </table>
+    <ngb-pagination [collectionSize]="allData.length" [(page)]="page" [pageSize]="pageSize" fxLayout="row"
+        fxLayoutAlign="center">
+    </ngb-pagination>
+</div>
