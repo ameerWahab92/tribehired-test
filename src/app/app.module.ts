@@ -21,6 +21,8 @@ import { CommentViewComponent } from './shared/component/comment-view/comment-vi
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +45,7 @@ import { MatInputModule } from '@angular/material/input';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule,
     NgbModule
   ],
   providers: [],

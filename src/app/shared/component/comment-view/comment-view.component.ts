@@ -17,7 +17,6 @@ export class CommentViewComponent implements OnInit {
   searchComment(id) {
     this.service.getComment(id).subscribe(item => {
       this.dataComment = item;
-      console.info("datasdsadad ::", item)
     })
   }
 }

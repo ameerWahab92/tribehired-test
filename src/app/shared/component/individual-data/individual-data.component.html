@@ -2,23 +2,36 @@
 <div mat-dialog-content>
     <mat-label>Post Id</mat-label>
     <div>
-        <input matInput type="text" [(ngModel)]="postId">
+        <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Filter search</mat-label>
+            <input matInput [(ngModel)]="postId">
+        </mat-form-field>
     </div>
 </div>
-
-<div>
-    <mat-label>Title</mat-label>
-    <div>
-        <textarea matInput placeholder="title value" disabled>{{data.title}}</textarea>
+<div *ngIf="data != undefined || data != null">
+    <div fxLayout="row">
+        <mat-form-field appearance="fill" style="width: 100%;">
+            <mat-label>Title</mat-label>
+            <div>
+                <textarea matInput placeholder="title value" disabled>{{data.title}}</textarea>
+            </div>
+        </mat-form-field>
     </div>
-</div>
+    <div fxLayout="row">
+        <div fxLayout="column" fxFlex="30">
+            <mat-form-field appearance="fill">
+                <mat-label>Id</mat-label>
+                <input matInput value="{{data.id}}">
+            </mat-form-field>
+        </div>
 
-<div>
-    Id- {{data.id}}
-</div>
-
-<div>
-    User Id- {{data.userId}}
+        <div fxLayout="column" fxFlex="30">
+            <mat-form-field appearance="fill">
+                <mat-label>User Id</mat-label>
+                <input matInput value="{{data.userId}}">
+            </mat-form-field>
+        </div>
+    </div>
 </div>
 <div mat-dialog-actions>
     <button mat-raised-button color="primary" (click)="searchIndi(postId)">Filter</button>

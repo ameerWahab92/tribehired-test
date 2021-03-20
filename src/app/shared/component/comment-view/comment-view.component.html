@@ -1,9 +1,9 @@
 <h1 mat-dialog-title>View Comment Data</h1>
 <div mat-dialog-content>
-    <mat-label>Post Id</mat-label>
-    <div>
-        <input type="text" [(ngModel)]="postId">
-    </div>
+    <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Post Id</mat-label>
+        <input matInput [(ngModel)]="postId">
+    </mat-form-field>
 </div>
 <div *ngIf="dataComment != undefined">
     <table>

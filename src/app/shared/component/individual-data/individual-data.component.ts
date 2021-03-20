@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentsService } from 'src/app/service/comments.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-individual-data',
@@ -16,8 +17,8 @@ export class IndividualDataComponent implements OnInit {
 
   searchIndi(id) {
     this.service.getIndividual(id).subscribe(item => {
-      console.info("data ::", item)
       this.data = item;
     })
+
   }
 }
