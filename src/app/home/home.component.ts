@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { CommentsService } from '../service/comments.service';
 import { CommentViewComponent } from '../shared/component/comment-view/comment-view.component';
@@ -24,32 +23,13 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public service: CommentsService,
-    public dialog: MatDialog,
-    public fb: FormBuilder) { }
+    public dialog: MatDialog) { }
 
   async ngOnInit() {
     this.service.getAll().subscribe(data => {
       this.allData = data;
     });
 
-    this.profileForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: [''],
-      address: this.fb.group({
-        street: [''],
-        city: [''],
-        state: [''],
-        zip: ['']
-      }),
-      aliases: this.fb.array([
-        this.fb.control('Starting', Validators.required)
-      ])
-    });
-
-  }
-
-  get aliases() {
-    return this.profileForm.get('aliases') as FormArray;
   }
 
   onChangePage(pageOfItems: Array<any>) {
@@ -80,7 +60,5 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  addAlias() {
-    this.aliases.push(this.fb.control(''));
-  }
+
 }
